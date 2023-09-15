@@ -1,15 +1,5 @@
-import fastify from "fastify";
-import { transactionsRoutes } from "./routes/transactions";
-import cookie from "@fastify/cookie";
+import { app } from "./app";
 import { env } from "./env";
-
-const app = fastify();
-
-app.register(cookie);
-app.register(transactionsRoutes, {
-  prefix: "/transactions",
-});
-
 app
   .listen({
     port: env.PORT,
